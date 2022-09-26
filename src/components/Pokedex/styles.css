@@ -15,6 +15,10 @@
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.slice-top-right{
+    position: relative;
+}
+
 .slice-top-right::before{
     content: '';
     position: absolute;
@@ -59,8 +63,4 @@
 .track-btn.bottom{
     transform: rotate(90deg);
     bottom: 5px;
-}
-.track-btn.center{
-    height: 10px;
-    width: 15px;
 }
