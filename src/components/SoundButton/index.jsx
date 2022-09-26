@@ -48,7 +48,7 @@ const Index = () => {
   }, [active, ost, currentOst, reset])
 
   return (
-    <div className="m-8 cursor-pointer text-pk-black absolute top-0 right-0 flex space-x-4">
+    <div className="m-8 cursor-pointer text-pk-black flex space-x-4 justify-end">
         <ForwardIcon onClick={() => handleNext()} className='h-10 w-10' />
         <div onClick={() => handlePlay()}>
             {

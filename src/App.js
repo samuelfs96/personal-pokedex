@@ -1,8 +1,15 @@
 import './App.css';
+import SoundButton from './components/SoundButton'
+import Pokedex from './components/Pokedex'
 
 function App() {
   return (
-    <p>holaa mundo</p>
+    <>
+      <SoundButton />
+      <div className="container mx-auto">
+        <Pokedex />
+      </div>
+    </>
   );
 }
 
