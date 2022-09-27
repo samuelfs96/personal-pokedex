@@ -17,11 +17,15 @@ const Index = ({
       setActivePokemon(activePokemon-count)
   }, [activePokemon, setActivePokemon])
 
+  const reset = useCallback(() => {
+    setActivePokemon(1)
+  }, [setActivePokemon])
+
   return (
     <div className="flex justify-around w-full">
         <div className="flex flex-col gap-3 items-end">
             <div className="grid grid-cols-3 gap-2 items-center">
-                <div className="w-10 h-10 bg-pk-black rounded-full shadow-[-2px_2px_1px_2px_rgba(0,0,0,1)]"></div>
+                <div onClick={() => reset()} className="cursor-pointer w-10 h-10 bg-pk-black rounded-full shadow-[-2px_2px_1px_2px_rgba(0,0,0,1)]"></div>
                 <div className="w-12 h-4 bg-pk-dark-red rounded-md"></div>
                 <div className="w-12 h-4 bg-pk-dark-blue rounded-md"></div>
             </div>

@@ -41,7 +41,7 @@ const Index = () => {
           <Controls pokemonCount={pokemonCount} activePokemon={activePokemon} setActivePokemon={setActivePokemon} loading={loading} />
         </LeftFace>
         <RightFace>
-          <StatsScreen/>
+          <StatsScreen pokemon={pokemon} loading={loading} />
           <div className="w-11/12 h-16 bg-pk-blue rounded-lg"></div>
           <div className="flex justify-between w-11/12">
             <div className="w-1/2 h-10 bg-white rounded-lg"></div>
