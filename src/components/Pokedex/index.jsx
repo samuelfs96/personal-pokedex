@@ -19,7 +19,6 @@ const Index = () => {
       PokeApi.getPokemon(activePokemon).then((data) =>{
         setPokemon(data)
         setLoading(false)
-        console.log(data)
       })
     }
   }, [activePokemon, setLoading])
