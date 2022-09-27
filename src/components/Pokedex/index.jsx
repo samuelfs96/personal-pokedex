@@ -20,7 +20,7 @@ const Index = () => {
     <div className="flex justify-center h-[32rem] items-end">
         <LeftFace>
           <Screen activePokemon={activePokemon} setLoading={setLoading} loading={loading}/>
-          <Controls pokemonCount={pokemonCount} activePokemon={activePokemon} setActivePokemon={setActivePokemon} />
+          <Controls pokemonCount={pokemonCount} activePokemon={activePokemon} setActivePokemon={setActivePokemon} loading={loading} />
         </LeftFace>
         <RightFace>
           <StatsScreen/>

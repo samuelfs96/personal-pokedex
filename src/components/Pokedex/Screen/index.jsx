@@ -23,7 +23,7 @@ const Index = ({activePokemon, setLoading, loading}) => {
         <div className="relative w-4/5 h-32 m-5 bg-pk-light-yellow border-pk-black rounded-lg flex flex-col justify-center items-center">
           {!loading && (
             <>
-              <img src={pokemon?.sprites?.front_default} className="w-40" alt="poke" />
+              <img src={pokemon?.sprites?.front_default} className="w-28" alt="poke" />
               <p className="capitalize font-bold absolute bottom-0">#{pokemon?.id} - {pokemon?.name}</p>
             </>
           )}
