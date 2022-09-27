@@ -1,22 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
-import PokeApi from '../../../api'
-
-const Index = ({activePokemon, setLoading, loading}) => {
-  const [pokemon, setPokemon] = useState(null)
-  const handleActivePokemon = useCallback(() =>{
-    if(activePokemon){
-      setLoading(true)
-      PokeApi.getPokemon(activePokemon).then((data) =>{
-        setPokemon(data)
-        setLoading(false)
-        console.log(data)
-      })
-    }
-  }, [activePokemon, setLoading])
-
-  useEffect(() => {
-    handleActivePokemon()
-  }, [handleActivePokemon])
+const Index = ({pokemon, loading}) => {
 
   return (
     <div className="w-60 h-52 flex justify-center slice-bottom-left bg-pk-light-gray rounded-lg rounded-bl-none shadow-[-4px_4px_0px_4px_#6a6a72]">

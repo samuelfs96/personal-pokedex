@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import './styles.css'
 import LeftFace from './LeftFace'
 import RightFace from './RightFace'
@@ -11,15 +11,33 @@ const Index = () => {
   const [pokemonCount, setPokemonCount] = useState(0)
   const [activePokemon, setActivePokemon] = useState(1)
   const [loading, setLoading] = useState(true)
+
+  const [pokemon, setPokemon] = useState(null)
+  const handleActivePokemon = useCallback(() =>{
+    if(activePokemon){
+      setLoading(true)
+      PokeApi.getPokemon(activePokemon).then((data) =>{
+        setPokemon(data)
+        setLoading(false)
+        console.log(data)
+      })
+    }
+  }, [activePokemon, setLoading])
+
   useEffect(() => {
     PokeApi.getPokemons().then((data) =>{
       setPokemonCount(data.length)
     })
   }, [])
+
+  useEffect(() => {
+    handleActivePokemon()
+  }, [handleActivePokemon])
+
     return (
     <div className="flex justify-center h-[32rem] items-end">
         <LeftFace>
-          <Screen activePokemon={activePokemon} setLoading={setLoading} loading={loading}/>
+          <Screen pokemon={pokemon} loading={loading}/>
           <Controls pokemonCount={pokemonCount} activePokemon={activePokemon} setActivePokemon={setActivePokemon} loading={loading} />
         </LeftFace>
         <RightFace>
