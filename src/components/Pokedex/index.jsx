@@ -5,17 +5,22 @@ import RightFace from './RightFace'
 import Screen from './Screen'
 import StatsScreen from './StatsScreen'
 import Controls from './Controls'
+import PokeApi from '../../api'
 
 const Index = () => {
-  const [pokemons, getPokemons] = useState(null)
+  const [pokemonCount, setPokemonCount] = useState(0)
+  const [activePokemon, setActivePokemon] = useState(1)
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
-    
+    PokeApi.getPokemons().then((data) =>{
+      setPokemonCount(data.length)
+    })
   }, [])
     return (
     <div className="flex justify-center h-[32rem] items-end">
         <LeftFace>
-          <Screen/>
-          <Controls/>
+          <Screen activePokemon={activePokemon} setLoading={setLoading} loading={loading}/>
+          <Controls pokemonCount={pokemonCount} activePokemon={activePokemon} setActivePokemon={setActivePokemon} />
         </LeftFace>
         <RightFace>
           <StatsScreen/>
